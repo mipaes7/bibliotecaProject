@@ -1,0 +1,264 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 14px;
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 14px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    width: 70%;
+}
+
+header h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Anton', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.backBtnContainer {
+    align-self: flex-end;
+    padding: 8px;
+}
+
+.backBtnContainer button {
+    height: 50px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bolder;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.firstP {
+    font-size: 24px;
+    align-self: flex-end;
+}
+
+.secondP {
+    font-size: 54px;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    line-height: 44px;
+    align-self: flex-end;
+    width: 100%;
+    text-align: right;
+    border-radius: 10px;
+}
+
+.cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8px;
+    row-gap: 8px;
+}
+
+.listCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* .listCard {
+    display: grid;
+    grid-template-rows: 35px 4px 10px 10px 10px 25px;
+    row-gap: 15px;
+    padding: 5px;
+    border: 1px  solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+
+.listCard p {
+    align-self: flex-start;
+}
+
+.listCard button {
+    /* width: 33%; */
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.listCard button:hover {
+    cursor: pointer;
+}
+
+hr {
+    height: 4px;
+    width: 100%;
+    background-color: black;
+}
+
+header h3 {
+    font-family: 'Anton', sans-serif;
+    text-align: right;
+}
+
+.detailCardsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 18px;
+    row-gap: 14px;
+}
+
+.booksDetails {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 8px 2fr 25px auto 50px;
+    row-gap: 8px;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* .booksDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 8px;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+
+.booksDetails img {
+    width: 100%;
+    height: 100%;
+    border: 0.8px solid black;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* .booksDetails .description {
+    overflow: scroll;
+    overflow-x: hidden;
+} */
+
+.booksDetails a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.booksDetails button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    overflow: auto;
+    height: 80%;
+    width: 70%;
+    background-color: #FF9900;
+    border-radius: 20px;
+    font-weight: bolder;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+/* .spinner {
+    border: 20px solid #f2f2f2;
+    border-bottom: 20px solid black;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    animation: loader 0.5s linear infinite;
+}
+
+@keyframes loader{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+} */
+
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 30px;
+    padding-bottom: 8px;
+    background: linear-gradient(currentColor 0 0) 0 100%/0% 3px no-repeat;
+    animation: l2 0.5s linear infinite;
+}
+
+.loader:before {
+    content: "Loading..."
+}
+
+@keyframes l2 {
+    to {
+        background-size: 100% 3px
+    }
+}
+
+
+@media (min-width: 770px) {
+    .cardsContainer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        width: 50%;
+    }
+
+    .detailCardsContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .cardsContainer {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        width: 50%;
+    }
+
+    .detailCardsContainer {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
