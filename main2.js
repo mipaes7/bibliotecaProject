@@ -6,54 +6,20 @@ const detailSubtitulo = document.querySelector('.subtitulo');
 const backBtnContainer = document.querySelector('.backBtnContainer');
 const loader = document.getElementById('loader');
 let lista;
-const paginacionContainer = document.querySelector('.paginacion');
-const listsPerPage = 10;
-const booksPerPAge = 5;
-let currentPage = 1;
-let arrayListsCardsToSlice;
-let arrayBooksToSlice;
 
 //EVENTOS
 document.addEventListener('click', ({target}) => {
     if (target.matches('.cardsContainer button')) {
         lista = target.value;
         limpiarComponentes(cardsContainer);
-        limpiarComponentes(paginacionContainer);
-        paginacionContainer.classList.replace('paginacion', 'paginacionBooks');
-        getBooksInList();
-        currentPage = 1;
-        window.scrollTo(0, 0);
+        getBooksInList(lista);
     }
 
     if (target.matches('.backBtnContainer button')) {
-        paginacionContainer.classList.replace('paginacionBooks', 'paginacion');
         limpiarComponentes(detailSubtitulo);
         limpiarComponentes(detailCardsContainer);
         limpiarComponentes(backBtnContainer);  
-        limpiarComponentes(paginacionContainer);
         getAllLists();
-        currentPage = 1;
-        window.scrollTo(0, 0);
-    }
-
-    if (target.matches('.paginacion #pageBackBtn')) {
-        // backwardsPage(getAllLists);
-        backwardsPage(pintarListCards);
-    }
-
-    if (target.matches('.paginacion #pageFwdBtn')) {
-        // forwardPage(getAllLists);
-        forwardPage(pintarListCards);
-    }
-
-    if (target.matches('.paginacionBooks #pageBackBtn')) {
-        // backwardsPage(getBooksInList);
-        backwardsPage(pintarDetails);
-    }
-
-    if (target.matches('.paginacionBooks #pageFwdBtn')) {
-        // forwardPage(getBooksInList);
-        forwardPage(pintarDetails);
     }
 });
 
@@ -65,8 +31,7 @@ const getAllLists = async () => {
         if (resp.ok) {
             const data = await resp.json();
             const arrayListsCards = data.results;
-            arrayListsCardsToSlice = arrayListsCards;
-            pintarListCards();
+            pintarListCards(arrayListsCards);
             loader.style.display = 'none';
         } else {
             throw resp;
@@ -84,9 +49,7 @@ const getBooksInList = async () => {
         if (resp.ok) {
             const data = await resp.json();
             const booksArray = data.results.books;
-            arrayBooksToSlice = booksArray;
-            // pintarDetails(booksArray);
-            pintarDetails();
+            pintarDetails(booksArray);
             loader.style.display = 'none';
         }
     } catch (error) {
@@ -95,21 +58,8 @@ const getBooksInList = async () => {
     }
 }
 
-const pintarListCards = () => {
-    limpiarComponentes(cardsContainer);
-    limpiarComponentes(paginacionContainer);
-    const backBtn = document.createElement('button');
-    const pageInfo = document.createElement('p');
-    const forwardBtn = document.createElement('button');
-    backBtn.textContent = `BACK`;
-    backBtn.id = 'pageBackBtn';
-    pageInfo.textContent = `PAGE ${currentPage} OF ${totalPages(arrayListsCardsToSlice, listsPerPage)}`;
-    forwardBtn.textContent = `NEXT`;
-    forwardBtn.id = 'pageFwdBtn';
-    paginacionContainer.append(backBtn, pageInfo, forwardBtn);
-    const slicedListsArr = sliceData(arrayListsCardsToSlice, currentPage, listsPerPage);
-    toggleBtns(arrayListsCardsToSlice, listsPerPage, forwardBtn, backBtn);
-    slicedListsArr.forEach(element => {
+const pintarListCards = (arrayListsCards) => {
+    arrayListsCards.forEach(element => {
         const card = document.createElement('div');
         const cardH3 = document.createElement('h3');
         const paragraphs1 = document.createElement('p');
@@ -130,26 +80,13 @@ const pintarListCards = () => {
     cardsContainer.append(fragmento);
 }
 
-const pintarDetails = () => {
-    limpiarComponentes(detailCardsContainer);
-    limpiarComponentes(backBtnContainer);
-    limpiarComponentes(paginacionContainer);
-    const backPageBtn = document.createElement('button');
-    const pageInfo = document.createElement('p');
-    const forwardPageBtn = document.createElement('button');
-    backPageBtn.textContent = `BACK`;
-    backPageBtn.id = 'pageBackBtn';
-    pageInfo.textContent = `PAGE ${currentPage} OF ${totalPages(arrayBooksToSlice, booksPerPAge)}`;
-    forwardPageBtn.textContent = `NEXT`;
-    forwardPageBtn.id = 'pageFwdBtn';
-    paginacionContainer.append(backPageBtn, pageInfo, forwardPageBtn);
-    const slicedBooksArr = sliceData(arrayBooksToSlice, currentPage, booksPerPAge);
-    toggleBtns(arrayBooksToSlice, booksPerPAge, forwardPageBtn, backPageBtn);
+const pintarDetails = (booksArray) => {
     detailSubtitulo.textContent = lista;
     const backBtn = document.createElement('button');
     backBtn.innerHTML = '<i class="fa-solid fa-angles-left"></i> BACK TO LISTS';
     backBtnContainer.append(backBtn);
-    slicedBooksArr.forEach(element => {
+    window.scrollTo(0, 0);
+    booksArray.forEach(element => {
         const detailCard = document.createElement('div');
         const detailCardH4 = document.createElement('h4');
         const separador = document.createElement('HR');
@@ -180,40 +117,5 @@ const limpiarComponentes = (componente) => {
     componente.innerHTML = '';
 };
 
-const forwardPage = (funcion) => {
-    currentPage += 1;
-    funcion();
-}
-
-const backwardsPage = (funcion) => {
-    currentPage -= 1;
-    funcion();
-}
-
-const sliceData = (arr, page = 1, items) => {
-const index1 = (currentPage - 1) * items;
-const index2 = index1 + items;
-return arr.slice(index1, index2);
-}
-
-const totalPages = (arr, items) => {
-    return Math.ceil(arr.length / items);
-}
-
-const toggleBtns = (arr, items, buttonFwd, buttonBack) => {
-    if (currentPage === 1) {
-        buttonBack.setAttribute('disabled', true);
-    } else {
-        buttonBack.removeAttribute('disabled');
-    }
-
-    if (currentPage === totalPages(arr, items)) {
-        buttonFwd.setAttribute('disabled', true)
-    } else {
-        buttonFwd.removeAttribute('disabled');
-    }
-}
-
 //INVOCACIONES
 getAllLists();
-// pintarListCards();
