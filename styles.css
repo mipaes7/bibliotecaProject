@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.hide {
+    display: none !important;
+}
+
 body {
     min-height: 100vh;
     padding: 14px;
@@ -18,7 +22,8 @@ header {
     display: flex;
     flex-direction: column;
     align-self: flex-start;
-    width: 70%;
+    width: 100%;
+    gap: 5px;
 }
 
 header h2 {
@@ -26,6 +31,63 @@ header h2 {
     flex-direction: column;
     align-items: center;
     font-family: 'Anton', sans-serif;
+    width: 50%;
+}
+
+#userNavContainer {
+    width: 100%;
+    display: flex;
+    gap: 14px;
+    border: 3px solid black;
+    padding: 5px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.filesInputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#logout-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profileImg {
+    border-radius: 10%;
+    max-width: 124px;
+    overflow: hidden;
+}
+
+.profileImg img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+#buttons-login-signup-container {
+    display: flex;
+    width: 100%;
+    gap: 4px;
+}
+
+#userNavContainer button {
+    width: 50%;
+    align-self: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#userNavContainer button:hover {
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: gray;
+    color: white;
 }
 
 main {
@@ -58,6 +120,13 @@ main {
     cursor: pointer;
 }
 
+.backBtnContainer button:hover {
+    background-color: white;
+    color: red;
+    border: 5px solid red;
+    border-radius: 5px;
+}
+
 .firstP {
     font-size: 24px;
     align-self: flex-end;
@@ -81,6 +150,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 18px;
 }
+
 /* .cardsContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -103,9 +173,9 @@ main {
 
 
 
-.listCard p {
+/* .listCard p {
     align-self: flex-start;
-}
+} */
 
 .listCard button {
     border-radius: 5px;
@@ -115,8 +185,9 @@ main {
 
 .listCard button:hover {
     cursor: pointer;
-    opacity: 0.8;
     font-weight: bolder;
+    background-color: gray;
+    color: white;
 }
 
 hr {
@@ -126,6 +197,7 @@ hr {
 }
 
 header h3 {
+    width: 50%;
     font-family: 'Anton', sans-serif;
     text-align: right;
 }
@@ -133,9 +205,10 @@ header h3 {
 .detailCardsContainer {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 0.5fr));
     gap: 18px;
 }
+
 /* .detailCardsContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -146,7 +219,7 @@ header h3 {
 .booksDetails {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 8px 2fr 25px auto 50px;
+    grid-template-rows: auto 8px 1fr 25px auto 50px 50px;
     row-gap: 8px;
     padding: 8px;
     border: 1px solid black;
@@ -183,9 +256,64 @@ header h3 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
 }
-.booksDetails button:hover {
-    opacity: 0.7;
+
+.booksDetails .favoriteBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    gap: 10px;
+    overflow: auto;
+    height: 80%;
+    width: 30%;
+    background-color: white;
+    color: gray;
+    border-radius: 20px;
+    font-weight: bolder;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.booksDetails .favoriteBtn-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    gap: 10px;
+    overflow: auto;
+    height: 80%;
+    width: 30%;
+    background-color: white;
+    color: red;
+    border-color: red;
+    border-radius: 20px;
+    font-weight: bolder;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.booksDetails .favoriteBtn-active:hover {
     font-weight: bold;
+    background-color: white;
+    color: black;
+    border-color: black;
+    border-width: 3px;
+}
+
+.booksDetails .favoriteBtn:hover {
+    font-weight: bold;
+    background-color: white;
+    color: red;
+    border-color: red;
+    border-width: 3px;
+}
+
+.booksDetails button:hover {
+    font-weight: bold;
+    background-color: #232f3e;
+    color: white;
+    border-color: #FF9900;
+    border-width: 3px;
 }
 
 /* .spinner {
@@ -222,51 +350,245 @@ header h3 {
     content: "Loading..."
 }
 
-.paginacion, .paginacionBooks {
+.paginacion,
+.paginacionBooks {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
 
-.paginacion button:hover, .paginacionBooks button:hover {
+.paginacion button,
+.paginacionBooks button {
     cursor: pointer;
-    opacity: 0.8;
+    border-radius: 5px;
+    padding: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.paginacion button:hover,
+.paginacionBooks button:hover {
+    cursor: pointer;
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: gray;
+    color: white;
+}
+
+.listsFiltersContainer,
+.booksFiltersContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    width: 100%;
+    border: 3px solid black;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.updateFilter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.updateFilter div {
+    display: flex;
+    gap: 8px;
+}
+
+.updateFilter button {
+    width: 60%;
+}
+
+.listsFiltersContainer form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.dateFilter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+}
+
+.azFilter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.listsFiltersContainer button,
+.booksFiltersContainer button,
+#submitInputTitle,
+#submitInputAuthor,
+#submitInputCategory {
+    border-radius: 5px;
+    padding: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.listsFiltersContainer button:hover,
+.booksFiltersContainer button:hover,
+#submitInputTitle:hover,
+#submitInputAuthor:hover,
+#submitInputCategory:hover {
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: gray;
+    color: white;
+}
+
+.authContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    grid-template-rows: repeat(2, minmax(250px, 1fr)); */
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: 10px;
+    gap: 30px;
+    border-radius: 10px;
+}
+
+.signinContainer {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    gap: 30px;
+    padding: 8px;
+    background-color: aliceblue;
+    border-radius: 8px;
+}
+
+.inputContainer {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.authContainer .icon {
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+
+.inputField {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    /* border-radius: ; */
+}
+
+.inputField:focus {
+    border: 2px solid dodgerblue;
+  }
+
+#loginContainer {
+    width: 100%;
+    height: 100%;
+}
+
+#signupContainer {
+    width: 100%;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    height: 100%;
+}
+
+#signUpForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.closeFormBtnContainer {
+    justify-self: center;
+    width: 33%;
+
+}
+
+.authContainer button, .submitBtn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid dodgerblue;
+}
+
+.authContainer button:hover, .submitBtn:hover {
+    border: 3px solid dodgerblue;
+    color: dodgerblue;
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+
+@media (min-width: 480px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        width: 100%;
+    }
+
+    #userNavContainer {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 @media (min-width: 770px) {
-    /* .cardsContainer {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-    } */
-
     header {
         display: flex;
         flex-direction: column;
         align-self: flex-start;
+        width: 100%;
+    }
+    #userNavContainer {
         width: 50%;
     }
-
-    /* .detailCardsContainer {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    } */
 }
 
 @media (min-width: 1024px) {
-    /* .cardsContainer {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-    } */
-
     header {
         display: flex;
         flex-direction: column;
         align-self: flex-start;
+        width: 100%;
+    }
+    #userNavContainer {
         width: 50%;
     }
-
-    /* .detailCardsContainer {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-    } */
 }
