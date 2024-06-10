@@ -170,6 +170,7 @@ inputFiles.addEventListener('change', (ev) => {
 
 categoryFilterForm.addEventListener('submit', (ev) => {
     ev.preventDefault();
+    currentPage = 1;
     const inputValue = document.getElementById('categoryInput').value;
     console.log(inputValue);
     if (inputValue === '') {
