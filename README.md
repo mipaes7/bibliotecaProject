@@ -2,6 +2,10 @@
 
 ![header](/assets/Captura1.PNG)
 
+## Acceso a la Aplicación
+
+Puedes acceder a la aplicación a través del siguiente enlace: [Biblioteca Project](https://mipaes7.github.io/bibliotecaProject/)
+
 ## Descripción
 
 Esta aplicación web permite a los usuarios explorar, filtrar y guardar sus libros favoritos de las listas de más vendidos de The New York Times. Los usuarios pueden registrarse, iniciar sesión, y personalizar su lista de favoritos.
