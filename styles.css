@@ -1,0 +1,644 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.hide {
+    display: none !important;
+}
+
+body {
+    min-height: 100vh;
+    padding: 14px;
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 14px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    width: 100%;
+    gap: 5px;
+}
+
+header h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Anton', sans-serif;
+    width: 50%;
+}
+
+#userNavContainer {
+    width: 100%;
+    display: flex;
+    gap: 14px;
+    border: 3px solid black;
+    padding: 5px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.filesInputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#logout-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profileImg {
+    border-radius: 10%;
+    max-width: 124px;
+    overflow: hidden;
+}
+
+.profileImg img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+#buttons-login-signup-container {
+    display: flex;
+    width: 100%;
+    gap: 4px;
+}
+
+#userNavContainer button {
+    width: 50%;
+    align-self: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#userNavContainer button:hover {
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: gray;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.backBtnContainer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+    position: sticky;
+    top: 0;
+    /* background-color: white; */
+    width: 100%;
+}
+
+.backBtnContainer button {
+    height: 50px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bolder;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.backBtnContainer button:hover {
+    background-color: white;
+    color: red;
+    border: 5px solid red;
+    border-radius: 5px;
+}
+
+.firstP {
+    font-size: 24px;
+    align-self: flex-end;
+}
+
+.secondP {
+    font-size: 54px;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    line-height: 44px;
+    align-self: flex-end;
+    width: 100%;
+    text-align: right;
+    border-radius: 10px;
+}
+
+.cardsContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 18px;
+}
+
+/* .cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8px;
+    row-gap: 8px;
+} */
+
+/* .listCard {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 3px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.listCard h3 {
+    height: 15vh;
+}
+
+.listCard hr {
+    padding: 0;
+} */
+
+.listCard {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 3px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.listCard h3 {
+    flex: 1 0 auto;
+    max-height: 31%;
+}
+
+.listCard p {
+    flex: 1 0 auto;
+    max-height: 10%;
+}
+
+hr {
+    width: 90%;
+    background-color: black;
+    height: 4px;
+    justify-self: center;
+}
+
+.listCard button {
+    flex: 0 0 auto;
+    padding: 8px 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.listCard button:hover {
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: gray;
+    color: white;
+}
+
+header h3 {
+    width: 50%;
+    font-family: 'Anton', sans-serif;
+    text-align: right;
+}
+
+/* .detailCardsContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 0.5fr));
+    gap: 18px;
+} */
+.detailCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.booksDetails {
+    width: 250px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5vh 4px auto 25px auto 50px 50px;
+    row-gap: 8px;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.booksDetails img {
+    width: 100%;
+    height: 300px;
+    border: 0.8px solid black;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.booksDetails p {
+    margin-top: 0;
+}
+
+.booksDetails a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.booksDetails button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    overflow: auto;
+    height: 80%;
+    width: 90%;
+    background-color: #FF9900;
+    border-radius: 20px;
+    font-weight: bolder;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.booksDetails .favoriteBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    gap: 10px;
+    overflow: auto;
+    height: 80%;
+    width: 30%;
+    background-color: white;
+    color: gray;
+    border-radius: 20px;
+    font-weight: bolder;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.booksDetails .favoriteBtn-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    gap: 10px;
+    overflow: auto;
+    height: 80%;
+    width: 30%;
+    background-color: white;
+    color: red;
+    border-color: red;
+    border-radius: 20px;
+    font-weight: bolder;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.booksDetails .favoriteBtn-active:hover {
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    border-color: black;
+    border-width: 3px;
+}
+
+.booksDetails .favoriteBtn:hover {
+    font-weight: bold;
+    background-color: white;
+    color: red;
+    border-color: red;
+    border-width: 3px;
+}
+
+.booksDetails button:hover {
+    font-weight: bold;
+    background-color: #232f3e;
+    color: white;
+    border-color: #FF9900;
+    border-width: 3px;
+}
+
+/* .spinner {
+    border: 20px solid #f2f2f2;
+    border-bottom: 20px solid black;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    animation: loader 0.5s linear infinite;
+}
+
+@keyframes loader{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+} */
+
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 30px;
+    padding-bottom: 8px;
+    background: linear-gradient(currentColor 0 0) 0 100%/0% 3px no-repeat;
+    animation: l2 0.5s linear infinite;
+}
+
+@keyframes l2 {
+    to {
+        background-size: 100% 3px
+    }
+}
+
+.loader:before {
+    content: "Loading..."
+}
+
+.paginacion,
+.paginacionBooks {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.paginacion button,
+.paginacionBooks button {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.paginacion button:hover,
+.paginacionBooks button:hover {
+    cursor: pointer;
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: gray;
+    color: white;
+}
+
+.listsFiltersContainer,
+.booksFiltersContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    width: 100%;
+    border: 3px solid black;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.updateFilter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.updateFilter div {
+    display: flex;
+    gap: 8px;
+}
+
+.updateFilter button {
+    width: 60%;
+}
+
+.listsFiltersContainer form,
+.booksFiltersContainer form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.categoryInputContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+}
+
+.dateFilter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.dateFilterBtnsConatainer {
+    display: flex;
+    gap: 8px;
+}
+
+/* .dateFilterBtnsConatainer button {
+    width: 100%;
+    height: 15px;
+} */
+
+.azFilter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.listsFiltersContainer button,
+.booksFiltersContainer button,
+#submitInputTitle,
+#submitInputAuthor,
+#submitInputCategory {
+    border-radius: 5px;
+    padding: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.listsFiltersContainer button:hover,
+.booksFiltersContainer button:hover,
+#submitInputTitle:hover,
+#submitInputAuthor:hover,
+#submitInputCategory:hover {
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: gray;
+    color: white;
+}
+
+.authContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    grid-template-rows: repeat(2, minmax(250px, 1fr)); */
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: 10px;
+    gap: 30px;
+    border-radius: 10px;
+}
+
+.signinContainer {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    gap: 30px;
+    padding: 8px;
+    background-color: aliceblue;
+    border-radius: 8px;
+}
+
+.inputContainer {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.authContainer .icon {
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+
+.inputField {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    /* border-radius: ; */
+}
+
+.inputField:focus {
+    border: 2px solid dodgerblue;
+  }
+
+#loginContainer {
+    width: 100%;
+    height: 100%;
+}
+
+#signupContainer {
+    width: 100%;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    height: 100%;
+}
+
+#signUpForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.closeFormBtnContainer {
+    justify-self: center;
+    width: 33%;
+
+}
+
+.authContainer button, .submitBtn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid dodgerblue;
+}
+
+.authContainer button:hover, .submitBtn:hover {
+    border: 3px solid dodgerblue;
+    color: dodgerblue;
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+
+@media (min-width: 480px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        width: 100%;
+    }
+
+    #userNavContainer {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 770px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        width: 100%;
+    }
+    #userNavContainer {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        width: 100%;
+    }
+    #userNavContainer {
+        width: 50%;
+    }
+}
