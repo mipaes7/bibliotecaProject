@@ -224,6 +224,16 @@ loginForm.addEventListener('submit', (ev) => {
 
 document.getElementById("button-logout").addEventListener("click", () => {
     signOut();
+    limpiarComponentes(detailSubtitulo);
+        limpiarComponentes(detailCardsContainer);
+        limpiarComponentes(backBtnContainer);
+        limpiarComponentes(paginacionContainer);
+        listsFiltersContainer.classList.remove('hide');
+        booksFiltersContainer.classList.add('hide');
+        getAllLists();
+        currentPage = 1;
+        window.scrollTo(0, 0);
+        readFavBooks(isUserLogged);
 });
 
 //FUNCIONES
@@ -342,6 +352,7 @@ const pintarBooksDetails = (arr) => {
         description.textContent = `${element.description}`;
         description.classList.add('description');
         weeksOnList.textContent = `Weeks on list: ${element.weeks_on_list}`;
+        weeksOnList.classList.add('weeks');
         buyAnchor.href = `${element.amazon_product_url}`;
         buyAnchor.target = 'blank';
         buyLinkBtn.innerHTML = `<i class="fa-brands fa-amazon"></i><div><p>Available on</p><p><strong>amazon</strong>.com</p></div>`;
