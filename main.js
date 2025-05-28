@@ -30,6 +30,8 @@ const booksTitleFilterForm = document.getElementById('booksTitleFilter');
 const booksAuthorFilterForm = document.getElementById('booksAuthorFilter');
 const inputFiles = document.getElementById('files');
 let category;
+let encodedNames = {};
+console.log(encodedNames)
 //variables auth
 let isUserLogged;
 let favBooksArr = [];
@@ -49,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener('click', ({ target }) => {
     if (target.matches('.cardsContainer button')) {
-        category = target.value;
+        console.log(target.value)
+        category = encodedNames[target.value];
         limpiarComponentes(cardsContainer);
         limpiarComponentes(paginacionContainer);
         listsFiltersContainer.classList.add('hide');
@@ -240,10 +243,15 @@ document.getElementById("button-logout").addEventListener("click", () => {
 const getAllLists = async () => {
     loader.classList.remove('hide');
     try {
-        const resp = await fetch('https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=cbNK1zjsqawgJqF8fPjdI1sSjY8e7hg9');
+        const resp = await fetch('https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=cbNK1zjsqawgJqF8fPjdI1sSjY8e7hg9');
         if (resp.ok) {
             const data = await resp.json();
-            const arrayListsCards = data.results;
+            console.log(data.results.lists)
+            const arrayListsCards = data.results.lists;
+            arrayListsCards.forEach(item => {
+                encodedNames[item.list_name] = item.list_name_encoded
+            })
+            console.log(encodedNames)
             arrayListsCardsToSlice = arrayListsCards;
             const slicedListsArr = sliceData(arrayListsCardsToSlice, currentPage, listsPerPage);
             slicedListsArrGlobal = slicedListsArr;
